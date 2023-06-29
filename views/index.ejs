@@ -1,0 +1,26 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>PG-MUSIC</title>
+    <link rel="stylesheet" href="/css/styles.css">
+ </head>
+   <body>
+  <center>
+  <h1 class="main-heading">YouTube Downloader</h1>
+  <form action="/download" method="POST">
+    <input type="text" name="query" placeholder="Digite sua pesquisa">
+    <button type="submit">Pesquisar</button>
+  </form>
+  <% if (typeof videoFileName !== 'undefined') { %>
+    <h1>Resultado:</h1>
+    <video src="/videos/<%= videoFileName %>" controls autoplay></video>
+  <% } %>
+
+  <% if (typeof errorMessage !== 'undefined' && errorMessage) { %>
+    <div class="error-message"><%= errorMessage %></div>
+  <% } %>
+  
+  </center>
+   </body>
+</html>
